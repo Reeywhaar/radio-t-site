@@ -1,0 +1,15 @@
+version: '3'
+services:
+    radiotdev:
+      build:
+        context: .
+        dockerfile: Dockerfile.dev
+      ports:
+        - "9000:9000"
+      volumes:
+        - ./hugo:/app/hugo
+        - ./package.json:/app/package.json.host
+        - ./package-lock.json:/app/package-lock.json.host
+        - ./sync-packages.sh:/app/sync-packages.sh:ro
+        - ./webpack.config.js:/app/webpack.config.js:ro
+        - ./front_src:/app/front_src:ro

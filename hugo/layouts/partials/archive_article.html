@@ -1,0 +1,23 @@
+<article class="list-archive-article">
+	<h1>
+		<a href="{{ .Permalink }}">{{ .Title }}</a>
+	</h1>
+
+	<time class="list-archive-article__datetime" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}" pubdate>
+		<span class="list-archive-article__month">{{ index .Site.Data.ru (printf "%d" .Date.Month) }}</span>
+		<span class="list-archive-article__day">{{ .Date.Day | printf "%02d" }}</span>
+		<span class="list-archive-article__year">{{ .Date.Year }}</span>
+	</time>
+
+	<footer>
+		<span class="list-archive-article__categories">метки:
+		{{ with .Params.categories }}
+			<span class="list-archive-article__categories-list">
+			{{ range . }}
+				<a class="list-archive-article__category" href="/categories/{{ . }}">{{ . }}</a>
+			{{ end }}
+			</span>
+		{{ end }}
+		</span>
+	</footer>
+</article>

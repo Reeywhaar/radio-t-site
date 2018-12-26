@@ -1,0 +1,17 @@
+FROM node:11-alpine as builder
+WORKDIR /app
+COPY package.json package-lock.json sync-packages.sh /app/
+RUN npm ci --loglevel error
+
+FROM alpine as hugo
+ENV HUGO_VER=0.49.2
+ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VER}/hugo_${HUGO_VER}_Linux-64bit.tar.gz /tmp/hugo.tar.gz
+RUN cd /tmp && tar -zxf hugo.tar.gz
+
+FROM builder
+COPY --from=hugo /tmp/hugo /bin/hugo
+WORKDIR /app
+RUN mkdir /public
+EXPOSE 9000
+CMD ["-c", "./node_modules/.bin/webpack --mode development --watch & hugo server -s /app/hugo -d /public -w --bind 0.0.0.0 -p 9000"]
+ENTRYPOINT ["/bin/ash"]

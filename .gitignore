@@ -1,3 +1,5 @@
 public/
 hugo/public/
+hugo/static/dist
+hugo/layouts/partials/webpack-inject.html
 publisher/utils/eyeD3/*.pyc

@@ -7,13 +7,9 @@
   (function() {
     var d = document, s = d.createElement('script');
     var baseurl = 'https://remark42.radio-t.com';
-    
-    {{ if eq .URL "/" }}
-    s.src = baseurl + '/web/counter.js';
-    {{ else if eq (substr .URL 0 3) "/p/" }}
-    s.src = baseurl + '/web/embed.js';
-    {{ end }}
-    
+
+		var scripturl = window.location.pathname === "/" ? "/web/counter.js" : "/web/embed.js"
+    s.src = baseurl + scripturl;
     s.type = 'text/javascript';
     (d.head || d.body).appendChild(s);
   })();

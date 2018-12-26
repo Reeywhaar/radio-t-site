@@ -1,0 +1,6 @@
+<% for(let file of htmlWebpackPlugin.files.js) {%>
+	<script src="<%= file %>" defer></script>
+<%}%>
+<% for(let file of htmlWebpackPlugin.files.css) {%>
+	<link rel="stylesheet" href="<%= file %>">
+<%}%>

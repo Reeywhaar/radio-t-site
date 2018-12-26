@@ -1,0 +1,19 @@
+{{ $classes := apply .Params.categories "printf" "list-article--%s" "." }}
+<article class="list-article {{ delimit $classes " " }}">
+  <header>
+    <h1 class="list-article__title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h1>
+
+    <p class="list-article__meta">
+      <time class="list-article__datetime" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}" pubdate data-updated="true">
+        {{ index .Site.Data.ru (printf "%d" .Date.Month) }} {{ .Date.Day | printf "%02d" }}, {{ .Date.Year }} - {{ .Date.Unix }}
+      </time>
+      <a class="list-article__comments-link" href="{{ .Permalink }}#remark42"><span class="remark42__counter" data-url="{{ .Permalink }}"></span> comments</a>
+    </p>
+  </header>
+
+  <div class="article-content list-article__content">
+    {{ .Content }}
+  </div>
+</article>

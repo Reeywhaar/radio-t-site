@@ -1,0 +1,31 @@
+{
+	"name": "@radio-t/website",
+	"private": true,
+	"version": "1.0.0",
+	"description": "radio-t.com website",
+	"main": "index.js",
+	"homepage": "https://github.com/radio-t/radio-t-site#readme",
+	"devDependencies": {
+		"@babel/core": "^7.2.0",
+		"@babel/polyfill": "^7.0.0",
+		"@babel/preset-env": "^7.2.0",
+		"babel-loader": "^8.0.4",
+		"babel-preset-jest": "^23.2.0",
+		"copy-webpack-plugin": "^4.6.0",
+		"css-loader": "^1.0.1",
+		"file-loader": "^2.0.0",
+		"html-loader": "^0.5.5",
+		"html-webpack-plugin": "^3.2.0",
+		"imports-loader": "^0.8.0",
+		"intersection-observer": "^0.5.1",
+		"mini-css-extract-plugin": "^0.4.4",
+		"node-sass": "^4.10.0",
+		"sass-loader": "^7.1.0",
+		"script-ext-html-webpack-plugin": "^2.1.3",
+		"svg-inline-loader": "^0.8.0",
+		"webpack": "^4.20.2",
+		"webpack-cli": "^3.1.2",
+		"webpack-dev-server": "^3.1.10",
+		"whatwg-fetch": "^3.0.0"
+	}
+}

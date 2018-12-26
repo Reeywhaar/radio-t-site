@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{{ `<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->` | safeHTML }}
+{{ `<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->` | safeHTML }}
+{{ `<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->` | safeHTML }}
+<head>
+	{{ partial "head.html" . }}
+</head>
+<body>
+	<header role="banner" class="main-header">
+		<header role="banner">
+			<hgroup>
+				<a href="/" id="super-logo" class="main-header__super-logo"></a>
+				<h1 class="main-header__title"><a href="/">Подкаст выходного дня - импровизации на темы высоких технологий</a></h1>
+			</hgroup>
+		</header>
+	</header>
+	<nav role="navigation" class="main-navigation">
+		<ul class="subscription main-navigation__subscription" data-subscription="rss">
+			<li><a href="http://feeds.rucast.net/radio-t" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+		</ul>
+		<form action="//google.com/search" method="get" class="main-navigation__search">
+				<fieldset role="search">
+						<input type="hidden" name="q" results="0" class="real-search">
+						<input class="search main-navigation__search-input" type="text" placeholder="Поиск">
+				</fieldset>
+		</form>
+		<ul class="main-navigation__list">
+			<li><a href="/">Подкасты</a></li>
+			<li><a href="/archives/">Архивы</a></li>
+			<li><a href="/online/">Вещание</a></li>
+			<li><a href="/feeds/">Подписка</a></li>
+			<li><a href="/faq/">FAQ</a></li>
+			<li><a href="/advertising/">Реклама</a></li>
+		</ul>
+	</nav>
+	<div id="main" class="main">
+		<div id="content" class="content main__content">
+			{{ block "main" . }}{{ end }}
+			{{ partial "sidebar.html" . }}
+			<div class="main__clear"></div>
+		</div>
+	</div>
+	{{ partial "foot.html" . }}
+	{{ partial "js_foot.html" . }}
+  </body>
+</html>
